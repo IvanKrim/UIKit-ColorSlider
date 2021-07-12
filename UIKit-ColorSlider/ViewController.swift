@@ -20,11 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
-    private var redSliderValue: CGFloat = 0.50
-    private var greenSliderValue: CGFloat = 0.50
-    private var blueSliderValue: CGFloat = 0.50
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .opaqueSeparator
@@ -37,32 +32,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func redSliderActrion() {
-        redSliderValue = CGFloat(redSlider.value)
         slidersValueLabael()
         setColor()
     }
     
     @IBAction func greenSliderAction() {
-        greenSliderValue = CGFloat(greenSlider.value)
         slidersValueLabael()
         setColor()
     }
     
     @IBAction func blueSliderAction() {
-        blueSliderValue = CGFloat(blueSlider.value)
         slidersValueLabael()
         setColor()
     }
-    
-    
     
 }
 extension ViewController {
     private func setColor() {
         viewDisplay.backgroundColor = UIColor(
-            red: redSliderValue,
-            green: greenSliderValue,
-            blue: blueSliderValue,
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
             alpha: 1
         )
     }
